@@ -1,0 +1,685 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 14px;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background-color: #F8F8F8;
+    /* user-select: none; */
+    overflow-x: hidden;
+}
+
+.administrators{
+    display: grid;
+    width: 100%;
+    margin: 0 auto;
+    grid-template-columns: 250px auto;
+
+}
+
+
+a{
+    color: #838f92
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2{
+    font-size: 1.4rem;
+}
+
+h3{
+    font-size: 0.86rem;
+}
+
+h4{
+    font-size: 0.8rem;
+}
+
+h5{
+    font-size: 0.77rem;
+}
+
+small{
+    font-size: 0.75rem;
+}
+
+.user-photo{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted{
+    color: #6D7280;
+}
+
+p{
+    font-weight: 400;
+    font-size: 14px;
+    color: #232838;
+}
+
+aside{
+    height: 100vh;
+    background-color: #1D1F25;
+}
+
+aside .top{
+    display: flex;
+    align-items: center;
+    height: 75px;
+    margin-left: 3.25rem;
+}
+
+aside .logo{
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+aside .logo img{
+    width: 120%;
+    height: 120%;
+}
+
+
+/* SIDEBAR */
+aside .sidebar{
+    background-color: #1D1F25;
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 1.5rem;
+}
+
+aside .sidebar span{
+    color: #FF005C;
+}
+
+aside h3{
+    font-weight: 400;
+    font-size: 14px;
+}
+
+aside .sidebar a{
+    display: flex;
+    color: #8e8f92;
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a span{
+    font-size: 1.6rem;
+}
+
+/* aside .sidebar a:last-child{
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+} */
+
+aside .sidebar a.active{
+    /* background: #2A2C32; */
+    color: white;
+    /* margin-left: 0; */
+}
+
+/* aside .sidebar a.active:before{
+    content: '';
+    width: 6px;
+    height: 100%;
+    background: #FF005C;
+} */
+
+/* aside .sidebar a.active span{
+    color: white;
+    margin-left: calc(1rem - 6px);
+} */
+
+aside .sidebar a:hover{
+    color:white;
+}
+
+
+/* TOPBAR */
+main .topbar{
+    background-color: #fff;
+    width: 100%;
+    height: 75px;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+main .topbar .title{
+    margin-left: 24px;
+}
+
+main .topbar .title h2{
+    font-weight: 500;
+}
+
+main .topbar .account{
+    display:flex;
+    align-items: center;
+    margin-right: 24px;
+    gap: 12px;
+    overflow-x: hidden;
+}
+
+main .topbar .account h3{
+    font-weight: 600;
+    color: #6D7280;
+}
+
+main .topbar .account img{
+    width: 40px;
+    height: 40px;
+}
+
+
+/* TABLE INFO */
+main .main-content .info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    padding-top: 24px;
+    overflow: hidden;
+}
+
+main .main-content .info .toggles{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+main .main-content .info .toggles .list-icon a{
+    padding: 0;
+    margin:0;
+    color: #00B2FF;
+    top: 2px;
+}
+
+main .main-content .info .toggles .button .add-admin-btn{
+    outline: none;
+    display: block;
+    border: solid 1.5px #00B2FF;
+    font-family: poppins, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    padding: 8px 12px;
+    border-radius: 2px;
+    background-color: #F8F8F8;
+    color: #00B2FF;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+main .main-content .info .toggles .button .add-admin-btn:hover,
+main .main-content .info .toggles .button .add-admin-btn:focus{
+    background: #00B2FF;
+    color: #fff;
+}
+
+
+
+/* TABLE */
+main .main-content .table{
+    background-color: #fff;
+    margin: 0px 24px 24px 24px;
+    border-radius: 4px;
+    border: 1px solid #f4f4f4;
+}
+
+main .main-content .table table{
+    border-collapse: collapse;
+    text-align: left;
+    overflow: hidden;
+    justify-content: space-between;
+    width: 100%;
+}
+
+main .main-content .table th{
+    padding: 16px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6D7280;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+main .main-content .table td{
+    padding: 12px 24px;
+}
+
+main .main-content .table .data-row{
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+
+main .main-content .table td img{
+    height: 36px;
+    width: 36px;
+}
+
+main .main-content .table .actions{
+    display: flex;
+    gap: 16px;
+}
+
+main .main-content .table .actions .edit-action span{
+    color: #00B2FF;
+}
+
+main .main-content .table .actions .edit-action span:hover,
+main .main-content .table .actions .edit-action span:focus{
+    color: #00A3FF;
+}
+
+main .main-content .table .actions .delete-action span{
+    color: #E74E4E;
+}
+
+main .main-content .table .actions .delete-action span:hover,
+main .main-content .table .actions .delete-action span:focus{
+    color: #FF1A1A;
+}
+
+
+main .main-content .table .user-info{
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+
+main .main-content .table tr:nth-child(odd){
+    background-color: #FCFCFC;
+}
+
+
+
+
+/* ADD ADMIN MODAL */
+.admin-modal,
+.edit-modal{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.25);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    /* z-index: -1; */
+    transition: 250ms opacity ease-in;
+}
+
+.admin-modal .admin-modal-container,
+.edit-modal .edit-modal-container{
+    background-color: white;
+    width: 40rem;
+    /* padding: 24px; */
+    border-radius: 4px;
+}
+
+.admin-modal .admin-modal-top-container,
+.edit-modal .edit-modal-top-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.admin-modal .admin-modal-top-container h1,
+.edit-modal .edit-modal-top-container h1{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.admin-modal .admin-modal-main-container,
+.edit-modal .edit-modal-main-container{
+    padding: 24px;
+    border-top: 1px solid #f4f4f4;
+}
+
+.admin-modal .admin-modal-main-container .upload-photo-container,
+.edit-modal .edit-modal-main-container .upload-photo-container{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.admin-modal .admin-modal-main-container .upload-photo-container .useravi,
+.edit-modal .edit-modal-main-container .upload-photo-container .useravi{
+    height: 56px;
+    width: 56px;
+    background-position: center;
+    background-size: cover;
+}
+
+.admin-modal .admin-modal-main-container .upload-photo-container .upload-button,
+.edit-modal .edit-modal-main-container .upload-photo-container .upload-button{
+    outline: none;
+    display: block;
+    border: solid 1.5px #00B2FF;
+    font-family: poppins, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    height: 30px;
+    padding: 8px 12px;
+    border-radius: 2px;
+    background-color: #fff;
+    color: #00B2FF;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.admin-modal-button,
+.edit-modal-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-modal .admin-modal-main-container .upload-photo-container .upload-button:focus,
+.admin-modal .admin-modal-main-container .upload-photo-container .upload-button:hover,
+.edit-modal .edit-modal-main-container .upload-photo-container .upload-button:focus,
+.edit-modal .edit-modal-main-container .upload-photo-container .upload-button:hover{
+    background: #00B2FF;
+    color: #fff;
+}
+
+
+
+/* ADMIN MODAL INPUT FORM */
+
+.admin-modal .admin-modal-container .admin-modal-main-container .admin-form form .admin-form-container,
+.edit-modal .edit-modal-container .edit-modal-main-container .edit-form form .edit-form-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+.admin-modal .admin-modal-container .admin-modal-main-container .admin-form form .admin-form-container .input-box,
+.edit-modal .edit-modal-container .edit-modal-main-container .edit-form form .edit-form-container .input-box{
+    margin-bottom: 12px;
+    /* width: calc(100% / 2 -20px); */
+    width: 49%;
+    font-size: 12px;
+}
+
+
+.admin-modal .admin-modal-container .admin-modal-main-container .admin-form form .admin-form-container .input-box .label,
+.edit-modal .edit-modal-container .edit-modal-main-container .edit-form form .edit-form-container .input-box .label{
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    color: #232838;
+}
+
+.admin-modal .admin-modal-container .admin-modal-main-container .admin-form form .admin-form-container .input-box input,
+.admin-modal .admin-modal-container .admin-modal-main-container .admin-form form .admin-form-container .input-box select,
+.edit-modal .edit-modal-container .edit-modal-main-container .edit-form form .edit-form-container .input-box input,
+.edit-modal .edit-modal-container .edit-modal-main-container .edit-form form .edit-form-container .input-box select{
+    height: 36px;
+    width: 100%;
+    outline: none;
+    border-radius: 2px;
+    border: 1px solid #d9d9d9;
+    padding-left: 14px;
+    padding-right: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    -webkit-appearance: menulist-button;
+}
+
+
+.admin-modal .admin-modal-container .admin-modal-main-container .admin-form form .admin-form-container .input-box input:focus,
+.edit-modal .edit-modal-container .edit-modal-main-container .edit-form form .edit-form-container .input-box input:focus{
+    border-color: #00B2FF;
+}
+
+
+.admin-modal .admin-modal-main-container .admin-modal-button .create-btn,
+.edit-modal .edit-modal-main-container .edit-modal-button .create-btn{
+    outline: none;
+    display: block;
+    border: solid 1.5px #00B2FF;
+    font-family: poppins, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    height: 30px;
+    padding: 8px 12px;
+    width: 35%;
+    border-radius: 2px;
+    background-color: #fff;
+    color: #00B2FF;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.admin-modal .admin-modal-main-container .admin-modal-button .create-btn:focus,
+.admin-modal .admin-modal-main-container .admin-modal-button .create-btn:hover,
+.edit-modal .edit-modal-main-container .edit-modal-button .create-btn:focus,
+.edit-modal .edit-modal-main-container .edit-modal-button .create-btn:hover{
+    background: #00B2FF;
+    color: #fff;
+}
+
+
+
+/* DELETE MODAL */
+.delete-modal{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.25);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    /* z-index: -1; */
+    transition: 250ms opacity ease-in;
+}
+
+.delete-modal .delete-modal-container{
+    background-color: white;
+    width: 30rem;
+    /* padding: 24px; */
+    border-radius: 4px;
+}
+
+.delete-modal-top-title{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.delete-modal-top-title span{
+    color: #E74E4E;
+}
+
+.delete-modal .delete-modal-top-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.delete-modal .delete-modal-top-container h1{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.delete-modal .delete-modal-main-container{
+    padding: 24px;
+    border-top: 1px solid #f4f4f4;
+}
+
+
+.delete-modal .delete-modal-container .delete-modal-button-container .delete-modal-buttons .cancel-btn{
+    outline: none;
+    display: block;
+    border: solid 1.5px #b5bbcc;
+    font-family: poppins, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    height: 30px;
+    padding: 8px 12px;
+    border-radius: 2px;
+    background-color: #fff;
+    color: #b5bbcc;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.delete-modal .delete-modal-container .delete-modal-button-container .delete-modal-buttons .cancel-btn:hover,
+.delete-modal .delete-modal-container .delete-modal-button-container .delete-modal-buttons .cancel-btn:focus{
+    background: #b5bbcc;
+    color: #fff;
+}
+
+.delete-modal .delete-modal-container .delete-modal-button-container .delete-modal-buttons .delete-btn{
+    outline: none;
+    display: block;
+    border: solid 1.5px #E74E4E;
+    font-family: poppins, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    height: 30px;
+    padding: 8px 12px;
+    border-radius: 2px;
+    background-color: #fff;
+    color: #E74E4E;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.delete-modal .delete-modal-container .delete-modal-button-container .delete-modal-buttons .delete-btn:hover,
+.delete-modal .delete-modal-container .delete-modal-button-container .delete-modal-buttons .delete-btn:focus{
+    background: #E74E4E;
+    color: #fff;
+}
+
+.delete-modal-button-container{
+    padding-bottom: 16px;
+    padding-right: 24px;
+}
+
+.delete-modal-buttons{
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    gap: 8px;
+}
+
+
+/* SHOW ADMIN MODAL */
+.show-modal{
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* hide MODAL */
+.hide-modal{
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* NOTIFICATION MODAL */
+.notification-modal{
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background-color: #EDFFEA;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 60px;
+    padding: 12px 24px 12px 16px;
+    transition: 250ms opacity ease-in;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+main .main-content .notification-modal .notification-modal-close{
+    color: #a3a3a3;
+}
+
+main .main-content .notification-modal span{
+    color: #60B172;
+}
+
+main .main-content .notification-modal p{
+    font-size: 14px;
+    
+}
+
+

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Management</title>
+    <link rel="icon" type="image/png" href="static/images/other/rocket-fav.png"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+<body>
+    {% block body %}
+    <div class="administrators">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="static/images/other/logo.png" alt="">
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-icons-round">dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">search</span>
+                    <h3>User Search</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">find_in_page</span>
+                    <h3>Order Search</h3>
+                </a>
+                <a href="#" class="active">
+                    <span class="material-icons-round">person</span>
+                    <h3>Administrators</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">shopping_bag</span>
+                    <h3>Products</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">local_shipping</span>
+                    <h3>Distribution Centers</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">turned_in</span>
+                    <h3>Inventory</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">email</span>
+                    <h3>Email Campaigns</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">account_balance</span>
+                    <h3>Merchants</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">show_chart</span>
+                    <h3>Reports</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">attach_money</span>
+                    <h3>Pay Commissions</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">request_quote</span>
+                    <h3>Withdrawal Requests</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">report</span>
+                    <h3>Fraud Management</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">construction</span>
+                    <h3>Tools</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">star_rate</span>
+                    <h3>Compensation Plan</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-round">support</span>
+                    <h3>Support</h3>
+                </a>
+                <a href="{{ url_for('logout') }}">
+                    <span class="material-icons-round">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+
+        <main>
+            <div class="topbar">
+                <div class="title">
+                    <h2>Administrators</h2>
+                </div>
+                <div class="account">
+                    <img src="static/images/other/account-avi.png" alt="">
+                    <h3>Christian Cardenas</h3>
+                </div>
+            </div>
+
+            <div class="main-content">
+
+                {%with messages = get_flashed_messages() %}
+
+                {%if messages%}
+
+                {%for message in messages%}
+
+                <div class="notification-modal" id="notification">
+                    <span class="material-icons-round">check_circle</span>
+                    <p>{{message}}</p>
+                    <!-- <div class="notification-modal-close">
+                        <a href="#">
+                            <span class="material-icons-round">close</span>
+                        </a>
+                    </div> -->
+                    
+                </div>
+
+            
+
+                {%endfor%}
+                {%endif%}   
+                {%endwith%} 
+
+
+                <div class="info">
+                    <div class="results">
+                        <p>{{rowcount}} Administrators </p>
+                    </div>
+                    <div class="toggles">
+                        <div class="list-icon">
+                            <a href="#">
+                                <span class="material-icons-round">menu</span>
+                            </a>
+                        </div>
+                        <div class="button">
+                            <button class="add-admin-btn">Add Admin</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Department</th>
+                                <th>Created At</th>
+                                <th>Last Login</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for row in administrators %}
+                            <tr class="data-row">
+                                <td><p>{{row.0}}</p></td>
+                                <td>
+                                    <div class="user-info">
+                                        <img src="static/images/other/user-avi.svg" alt="">
+                                        <p>{{row.1}} {{row.2}}</p>
+                                    </div>
+                                </td>
+                                <td><p>{{row.3}}</p></td>
+                                <td><p>{{row.4}}</p></td>
+                                <td><p>{{row.6}}</p></td>
+                                <td><p>{{row.7}}</p></td>
+                                <td><p>{{row.8}}</p></td>
+                                <td>
+                                    <div class="actions">
+                                        <div class="edit-action">
+                                            <a href="/update/{{row.0}}">
+                                                <span class="material-icons-round">edit</span>
+                                            </a>
+                                        </div>
+                                        <div class="delete-action">
+                                            <a href="/delete/{{row.0}}">
+                                                <span class="material-icons-round">delete</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        {% for row in administrators %}
+        <div class="edit-modal">
+            <div class="edit-modal-container">
+                <div class="edit-modal-top-container">
+                    <div class="edit-modal-top-title">
+                        <h1>Update Administrators</h1>
+                    </div>
+                    <div class="edit-modal-top-close">
+                        <a href="#">
+                            <span class="material-icons-round">close</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="edit-modal-main-container">
+                    <p>Profile Picture (Optional)</p>
+                    <div class="upload-photo-container">
+                        <div class="useravi">
+                            <img src="static/images/other/user-avi.svg" alt="" class="user-avi">
+                        </div>
+                        <button class="upload-button">Upload Photo</button>
+                    </div>
+                    <div class="edit-form">
+
+                        <form action="{{ url_for('update', id = row.0) }}" method="POST">
+                           <div class="edit-form-container">
+                                <input type="hidden" name="id" value="{{row.0}}">
+                                <div class="input-box">
+                                    <span class="label">First Name</span>
+                                    <input type="text" name="firstName" value="{{row.1}}">
+                                </div>
+                                <div class="input-box">
+                                    <span class="label">Last Name</span>
+                                    <input type="text" name="lastName" value="{{row.2}}">
+                                </div>
+                                <div class="input-box">
+                                    <span class="label">Email</span>
+                                    <input type="text" name="email" value="{{row.4}}">
+                                </div>
+                                <div class="input-box">
+                                    <span class="label">Username</span>
+                                    <input type="text" name="username" value="{{row.3}}">
+                                </div>
+                                <div class="input-box">
+                                    <span class="label">Password</span>
+                                    <input type="password" name="password" value="{{row.5}}">
+                                </div>
+                                <div class="input-box">
+                                    <span class="label">Department</span>
+                                    <select name="department" id="select">
+                                        <option disabled selected>Select Department</option>
+                                        
+                                        {% for row in departments %}
+                                            <option value="{{row.0}}">{{row.0}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <!-- <select name="department" id="select">
+                                        <option disabled selected>{{row.6}}</option>
+                                        <option value="Super Admin">Super Admin</option>
+                                        <option value="Admin">Admin</option>
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="Support">Support</option>
+                                    </select> -->
+                                    <!-- <input type="text" name="department" value="{{row.6}}"> -->
+                                </div>
+                           </div>
+                            <div class="edit-modal-button">
+                            <button type="submit" class="create-btn">Update</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="admin-modal">
+            <div class="admin-modal-container">
+                <div class="admin-modal-top-container">
+                    <div class="admin-modal-top-title">
+                        <h1>Add Administrators</h1>
+                    </div>
+                    <div class="admin-modal-top-close">
+                        <a href="#">
+                            <span class="material-icons-round">close</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="admin-modal-main-container">
+                    <p>Profile Picture (Optional)</p>
+                    <div class="upload-photo-container">
+                        <div class="useravi" id="display_image">
+                            <img src="static/images/other/user-avi.svg" alt="" class="user-avi">
+                        </div>
+                        <!-- <input type="file" id="upload_photo" accept="image/png, image/jpg"> -->
+                        <button class="upload-button">Upload Photo</button>
+                    </div>
+                    <div class="admin-form">
+                        <form action="{{url_for('insert')}}" method="POST">
+                           <div class="admin-form-container">
+                                <div class="input-box">
+                                    <span class="label">First Name</span>
+                                    <input type="text" name="firstName" required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="label">Last Name</span>
+                                    <input type="text" name="lastName" required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="label">Email</span>
+                                    <input type="text" name="email" required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="label">Username</span>
+                                    <input type="text" name="username" required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="label">Password</span>
+                                    <input type="password" name="password" required>
+                                </div>
+                                <div class="input-box">
+                                    <span class="label">Department</span>
+                                    <select name="department" id="select">
+                                        <option disabled selected>Select Department</option>
+                                        {% for row in departments %}
+                                            <option value="{{row.0}}">{{row.0}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <!-- <select name="department" id="select">
+                                        <option disabled selected>Department</option>
+                                        <option value="Super Admin">Super Admin</option>
+                                        <option value="Admin">Admin</option>
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="Support">Support</option>
+                                    </select> -->
+                                    <!-- <input type="text" name="department" required> -->
+                                </div>
+                           </div>
+                            <div class="admin-modal-button">
+                            <button type="submit" class="create-btn">Create</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {% for row in administrators %}
+        <div class="delete-modal">
+            <div class="delete-modal-container">
+                <div class="delete-modal-top-container">
+                    <div class="delete-modal-top-title">
+                        <!-- <span class="material-icons-round">error_outline</span> -->
+                        <h1>Are you sure?</h1>
+                    </div>
+                    <div class="delete-modal-top-close">
+                        <a href="#">
+                            <span class="material-icons-round">close</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="delete-modal-main-container">
+                    <p>Are you sure you wish to deactivate this user? This action cannot be undone.</p>
+                </div>
+                <div class="delete-modal-button-container">
+                    <div class="delete-modal-buttons">
+                        <button type="submit" class="cancel-btn">Cancel</button>
+                        <a href="/delete/{{row.0}}">
+                            <button type="submit" class="delete-btn">Deactivate</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">window.setTimeout("document.getElementById('notification').style.display='none';", 4000); </script>
+    {% endblock %}
+</body>
+</html>

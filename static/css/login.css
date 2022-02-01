@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 14px;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background-color: #F8F8F8;
+    /* user-select: none; */
+    overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+
+a{
+    color: #838f92
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2{
+    font-size: 1.4rem;
+}
+
+h3{
+    font-size: 0.86rem;
+}
+
+h4{
+    font-size: 0.8rem;
+}
+
+h5{
+    font-size: 0.77rem;
+}
+
+small{
+    font-size: 0.75rem;
+}
+
+
+
+
+
+.login-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.login-left{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-image{
+    background-size: cover;
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.login-right{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.login-right .login-form{
+    margin: 40px;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    /* margin: 20px 0 12px 0; */
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-right .login-form .input-box{
+    
+    margin-bottom: 12px;
+    width: 20rem;
+    font-size: 12px;
+}
+
+.login-right .login-form .input-box .label{
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    color: #232838;
+}
+
+.login-right .login-form .input-box input{
+    height: 36px;
+    width: 100%;
+    outline: none;
+    border-radius: 2px;
+    border: 1px solid #d9d9d9;
+    padding-left: 14px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.login-right .login-form .input-box input:focus{
+    border-color: #00B2FF;
+}
+
+.login-right .login-form .login-btn{
+    outline: none;
+    display: block;
+    border: solid 1.5px #FF005C;
+    font-family: poppins, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    /* height: 30px; */
+    padding: 10px 12px;
+    width: 100%;
+    border-radius: 2px;
+    background-color: #FF005C;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.login-right .login-form .login-btn:hover,
+.login-right .login-form .login-btn:focus{
+    background: #d1004d;
+    color: #fff;
+}
+
+.login-container .login-right .login-notification{
+    width: 20rem;
+    margin: 12px 0px 12px 0px;
+    padding: 12px;
+    background-color: #ffe8e8;
+    font-size: 12px;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

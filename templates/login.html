@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Login</title>
+    <link rel="icon" type="image/png" href="static/images/other/rocket-fav.png"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    {% block body %}
+    <div class="login-container">
+        <div class="login-left">
+            <img src="static/images/other/login-image.png" alt="" class="login-image"></div>
+        <div class="login-right">
+            <div class="login-logo">
+                <img src="static/images/other/logo-dark.png" alt="">
+            </div>
+            <div class="login-form">
+                <form method="post" action="/login">
+                    <div class="input-box">
+                        <span class="label">Username</span>
+                        <input type="text" name="username" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="label">Password</span>
+                        <input type="password" name="password" required>
+                    </div>
+                    <div class="msg">{{ msg }}</div>
+                    <div class="login-button">
+                        <input type="submit" class="login-btn" value="Login">
+                    </div>
+                    {%with messages = get_flashed_messages() %}
+
+                    {%if messages%}
+        
+                    {%for message in messages%}
+                    <div class="login-notification">
+                        <p>{{message}}</p>
+                    </div>
+                    
+                            
+                    {%endfor%}
+                    {%endif%}   
+                    {%endwith%} 
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
